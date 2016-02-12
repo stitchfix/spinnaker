@@ -18,14 +18,10 @@ fi
 /opt/spinnaker/bin/reconfigure_spinnaker.sh
 
 # vhosts
-rm -rf /etc/apache2/sites-enabled/*.conf
+rm -rf /etc/nginx/sites-enabled/*.conf
+ln -s /etc/nginx/sites-available/spinnaker.conf /etc/nginx/sites-enabled/spinnaker.conf
 
-/usr/sbin/a2ensite spinnaker
-/usr/sbin/a2enmod proxy_http
-
-sed -i "s/Listen\ 80/Listen 127.0.0.1:9000/" /etc/apache2/ports.conf
-
-service apache2 restart
+service sf-nginx restart
 
 # Install cassandra keyspaces
 cqlsh -f "/opt/spinnaker/cassandra/create_echo_keyspace.cql"
@@ -38,4 +34,6 @@ for s in clouddriver orca front50 rush rosco echo gate igor; do
     echo manual | sudo tee /etc/init/$s.override
 done
 
+# Make cassandra start on bootup
+chkconfig --add cassandra
 
