@@ -7,18 +7,26 @@ providers:
     # If you want to deploy some services to Amazon Web Services (AWS),
     # set enabled and provide primary credentials for deploying.
     # Enabling AWS is independent of other providers.
-    enabled: ${SPINNAKER_AWS_ENABLED}
+<<<<<<< HEAD
+    enabled: true
+    defaultRegion: us-east-1
+    defaultIAMRole: aa-infrastructure
+=======
+    enabled: ${SPINNAKER_AWS_ENABLED:false}
     defaultRegion: ${SPINNAKER_AWS_DEFAULT_REGION}
     defaultIAMRole: BaseIAMRole
+>>>>>>> upstream/master
     primaryCredentials:
-      name: my-aws-account
+      name: stitchfix-aa
       # Store actual credentials in /home/spinnaker/.aws/credentials
 
+<<<<<<< HEAD
+=======
   google:
     # If you want to deploy some services to Google Cloud Platform (google),
     # set enabled and provide primary credentials for deploying.
     # Enabling google is independent of other providers.
-    enabled: ${SPINNAKER_GOOGLE_ENABLED}
+    enabled: ${SPINNAKER_GOOGLE_ENABLED:false}
     defaultRegion: ${SPINNAKER_GOOGLE_DEFAULT_REGION}
     defaultZone: ${SPINNAKER_GOOGLE_DEFAULT_ZONE}
     primaryCredentials:
@@ -45,21 +53,25 @@ providers:
     #   name: my-cf-username
     #   password: my-cf-password
 
+>>>>>>> upstream/master
 services:
+  gate:
+    baseUrl: http://spinnaker.vertigo.stitchfix.com/gate
+
   default:
     # These defaults can be modified to change all the spinnaker subsystems
     # (clouddriver, gate, etc) at once, but not external systems (jenkins, etc).
     # Individual systems can still be overriden using their own section entry
     # directly under 'services'.
     protocol: http    # Assume all spinnaker subsystems are using http
-    host: localhost   # Assume all spinnaker subsystems are on localhost
+    host: 0.0.0.0
     primaryAccountName: ${providers.google.primaryCredentials.name}
 
   redis:
     # If you are using a remote redis server, you can set the host here.
     # If the remote server is on a different port or url, you can add
     # a "port" or "baseUrl" field here instead.
-    host: localhost
+    host: spinnaker-prod.umkhnf.0001.use1.cache.amazonaws.com
 
   cassandra:
     # If you are using a remote cassandra server, you can set the host here.

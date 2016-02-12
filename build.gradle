@@ -68,13 +68,21 @@ ospackage {
     fileMode = 0644
   }
 
+  from('etc/nginx/sites-available/spinnaker.conf') {
+    into '/etc/nginx/sites-available'
+    user = 'root'
+    permissionGroup = 'root'
+    fileMode = 0644
+  }
 
+/*
   from('etc/apache2/sites-available/spinnaker.conf') {
-    into '/etc/apache2/sites-available'
+    into '/etc/httpd/conf'
     user = 'root'
     permissionGroup = 'root'    
     fileMode = 0644
   }
+*/
 
   from('etc/default/spinnaker') {
     into '/etc/default'
@@ -92,7 +100,6 @@ ospackage {
   collection.each { configurationFile(spinnakerHome + '/' + relativePath(it) + '\n') }
 }
 
-
 // Ubuntu
 buildDeb {
   // requires('openjdk-8-jdk')
@@ -108,12 +115,22 @@ buildDeb {
   requires('spinnaker-rosco')
   requires('spinnaker-rush')
   requires('apache2')
-  
 }
 
-
-// TO DO 
+// Centos
 buildRpm {
-  arch = NOARCH
+  requires('sf-nginx')
+  requires('sf-base') 
+  requires('dsc20') //for cassandra
+  requires('spinnaker-clouddriver')
+  requires('spinnaker-deck')
+  requires('spinnaker-echo')
+  requires('spinnaker-front50')
+  requires('spinnaker-gate')
+  requires('spinnaker-igor')
+  requires('spinnaker-orca')
+  requires('spinnaker-rosco')
+  requires('spinnaker-rush')
+  
   os = LINUX
 }

@@ -18,19 +18,19 @@ fi
 /opt/spinnaker/bin/reconfigure_spinnaker.sh
 
 # vhosts
-rm -rf /etc/apache2/sites-enabled/*.conf
+rm -rf /etc/nginx/sites-enabled/*.conf
 
-ln -s /etc/apache2/sites-available/spinnaker.conf /etc/apache2/sites-enabled/spinnaker.conf
+ln -s /etc/nginx/sites-available/spinnaker.conf /etc/nginx/sites-enabled/spinnaker.conf
 
-sed -i "s/Listen\ 80/Listen 127.0.0.1:9000/" /etc/apache2/ports.conf
-
-service apache2 restart
+service sf-nginx restart
 
 # Install cassandra keyspaces
 cqlsh -f "/opt/spinnaker/cassandra/create_echo_keyspace.cql"
 cqlsh -f "/opt/spinnaker/cassandra/create_front50_keyspace.cql"
 cqlsh -f "/opt/spinnaker/cassandra/create_rush_keyspace.cql"
 
+# Make cassandra start on bootup
+chkconfig --add cassandra
 # Start all the services
 
 # start 'clouddriver'
