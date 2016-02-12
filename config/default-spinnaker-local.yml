@@ -12,7 +12,7 @@ providers:
     defaultIAMRole: aa-infrastructure
     primaryCredentials:
       name: stitchfix-aa
-  
+
   google:
     # If you want to deploy some services to Google Cloud Platform (google),
     # set enabled and provide primary credentials for deploying.
