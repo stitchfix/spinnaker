@@ -2,6 +2,15 @@ server:
     port: ${services.rush.port:8085}
     address: ${services.rush.host:localhost}
 
+rush:
+  polling:
+    orphanedExecutionTimeoutMinutes: 30
+    runningExecutionUpdateIntervalSeconds: 15
+    canceledExecutionUpdateIntervalSeconds: 30
+  jobs:
+    local:
+      timeoutMinutes: 10
+
 cassandra:
   embedded: ${services.cassandra.embedded:false}
   host: ${services.cassandra.host:localhost}
