@@ -23,6 +23,16 @@ ln -s /etc/nginx/sites-available/spinnaker.conf /etc/nginx/sites-enabled/spinnak
 
 service sf-nginx restart
 
+# Install the correct packer libs
+mkdir /tmp/packer && pushd /tmp/packer
+curl -L -O https://releases.hashicorp.com/packer/0.8.6/packer_0.8.6_linux_amd64.zip
+unzip -u -o -q packer_0.8.6_linux_amd64.zip -d /usr/bin
+popd
+rm -rf /tmp/packer
+
+# Rename the other packer package that conflicts with our packer...(this is hacky)
+mv /usr/sbin/packer /usr/sbin/packer.io
+
 # Install cassandra keyspaces
 cqlsh -f "/opt/spinnaker/cassandra/create_echo_keyspace.cql"
 cqlsh -f "/opt/spinnaker/cassandra/create_front50_keyspace.cql"
