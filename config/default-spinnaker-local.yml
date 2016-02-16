@@ -49,6 +49,9 @@ services:
   gate:
     baseUrl: http://spinnaker.vertigo.stitchfix.com/gate
 
+  rosco:
+    baseUrl: http://spinnaker.vertigo.stitchfix.com/rosco
+
   default:
     # These defaults can be modified to change all the spinnaker subsystems
     # (clouddriver, gate, etc) at once, but not external systems (jenkins, etc).
@@ -88,14 +91,14 @@ services:
     # on your own if you are interested.
     defaultMaster:
       name: Jenkins # The display name for this server
-      baseUrl:
+      baseUrl: http://aa-jenkins.vertigo.stitchfix.com:8080
       username:
       password:
 
   igor:
     # If you are integrating Jenkins then you must also enable Spinnaker's
     # "igor" subsystem.
-    enabled: false
+    enabled: true
 
   deck:
     # Frontend configuration.
