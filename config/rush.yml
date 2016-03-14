@@ -9,7 +9,7 @@ rush:
     canceledExecutionUpdateIntervalSeconds: 30
   jobs:
     local:
-      timeoutMinutes: 10
+      timeoutMinutes: 30
 
 cassandra:
   embedded: ${services.cassandra.embedded:false}
