@@ -34,6 +34,10 @@ rm -rf /tmp/packer
 # Rename the other packer package that conflicts with our packer...(this is hacky)
 mv /usr/sbin/packer /usr/sbin/packer.io
 
+# now put our sudo wrapper on packer command (HACK!)
+echo 'sudo /usr/bin/packer "$@"' > /usr/bin/_packer
+chmod 755 /usr/bin/_packer
+
 # Install cassandra keyspaces
 cqlsh -f "/opt/spinnaker/cassandra/create_echo_keyspace.cql"
 cqlsh -f "/opt/spinnaker/cassandra/create_front50_keyspace.cql"
