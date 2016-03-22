@@ -45,8 +45,11 @@ rm -rf /tmp/packer
 mv /usr/sbin/packer /usr/sbin/packer.io
 
 # now put our sudo wrapper on packer command (HACK!)
-echo 'sudo /usr/bin/packer "$@"' > /usr/bin/_packer
-chmod 755 /usr/bin/_packer
+# echo 'sudo /usr/bin/packer "$@"' > /usr/bin/_packer
+# chmod 755 /usr/bin/_packer
+
+# add spinnaker to sudoers file
+echo 'spinnaker ALL=(ALL) NOPASSWD: /usr/bin/packer' > /etc/sudoers.d/spinnaker
 
 # Install cassandra keyspaces
 cqlsh -f "/opt/spinnaker/cassandra/create_echo_keyspace.cql"
