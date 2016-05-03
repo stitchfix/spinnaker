@@ -89,7 +89,7 @@ services:
     # If the remote server is on a different port or url, you can add
     # a "port" or "baseUrl" field here instead. You may also need to set
     # the cluster name. See the main spinnaker.yml file for more attributes.
-    host: localhost
+    host: cassandra.vertigo.stitchfix.com
 
   docker:
     # This target repository is used by the bakery to publish baked docker images.
