@@ -9,6 +9,10 @@ if [ `readlink -f /opt/spinnaker/scripts` != "/opt/spinnaker/bin" ]; then
   ln -s /opt/spinnaker/bin /opt/spinnaker/scripts
 fi
 
+# get spinnaker jenkins password from vault
+pass=$(curl vault.vertigo.stitchfix.com/secure/spinnaker_jenkins_password)
+sed -i s/"password: fake_jenkins_password_poop"/"password: $pass"/g /opt/spinnaker/config/default-spinnaker-local.yml
+
 if [ ! -f /opt/spinnaker/config/spinnaker-local.yml ]; then
   # Create master config on original install, but leave in place on upgrades.
   cp /opt/spinnaker/config/default-spinnaker-local.yml /opt/spinnaker/config/spinnaker-local.yml
