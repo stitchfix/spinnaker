@@ -111,7 +111,7 @@ services:
       name: Jenkins # The display name for this server
       baseUrl: http://aa-jenkins.vertigo.stitchfix.com:8080
       username: spinnaker
-      password:
+      password: {{ JENKINS_PASSWORD_HERE }}
 
   clouddriver:
     # Controls whether UserDataProviders are used to populate user data of new server groups.
