@@ -45,16 +45,12 @@ mv /usr/sbin/packer /usr/sbin/packer.io
 echo 'spinnaker ALL=(ALL) NOPASSWD: /usr/bin/packer' > /etc/sudoers.d/spinnaker
 
 # Install cassandra keyspaces
-cqlsh -f "/opt/spinnaker/cassandra/create_echo_keyspace.cql"
-cqlsh -f "/opt/spinnaker/cassandra/create_front50_keyspace.cql"
-cqlsh -f "/opt/spinnaker/cassandra/create_rush_keyspace.cql"
+cqlsh cassandra.vertigo.stitchfix.com -f "/opt/spinnaker/cassandra/create_echo_keyspace.cql"
+cqlsh cassandra.vertigo.stitchfix.com -f "/opt/spinnaker/cassandra/create_front50_keyspace.cql"
+cqlsh cassandra.vertigo.stitchfix.com -f "/opt/spinnaker/cassandra/create_rush_keyspace.cql"
 
 # Disable auto upstart of the services.
 # We'll have spinnaker auto start, and start them as it does.
 for s in clouddriver orca front50 rush rosco echo gate igor; do
     echo manual | sudo tee /etc/init/$s.override
 done
-
-# Make cassandra start on bootup
-chkconfig --add cassandra
-

@@ -121,7 +121,6 @@ buildDeb {
 buildRpm {
   requires('sf-nginx')
   requires('sf-base') 
-  requires('dsc20') //for cassandra
   requires('spinnaker-clouddriver')
   requires('spinnaker-deck')
   requires('spinnaker-echo')
