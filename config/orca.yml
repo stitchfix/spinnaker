@@ -34,6 +34,10 @@ default:
   vpc:
     securityGroups:
 
+script:
+   master: Jenkins
+   job: spinnaker-scripts-job
+
 redis:
   connection: ${services.redis.connection}
 
