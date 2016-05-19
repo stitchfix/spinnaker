@@ -55,6 +55,6 @@ cqlsh cassandra.vertigo.stitchfix.com -f "/opt/spinnaker/cassandra/create_rush_k
 
 # Disable auto upstart of the services.
 # We'll have spinnaker auto start, and start them as it does.
-for s in clouddriver orca front50 rush rosco echo gate igor; do
-    echo manual | sudo tee /etc/init/$s.override
-done
+#for s in clouddriver orca front50 rush rosco echo gate igor; do
+#    echo manual | sudo tee /etc/init/$s.override
+#done
