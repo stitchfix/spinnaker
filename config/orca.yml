@@ -41,4 +41,6 @@ script:
 redis:
   connection: ${services.redis.connection}
 
-
+tasks:
+  executionWindow:
+    timezone: ${services.orca.timezone}
