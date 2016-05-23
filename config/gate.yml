@@ -22,4 +22,5 @@ server:
 
 redis:
   connection: ${services.redis.connection}
-
+  configuration:
+    secure: true
