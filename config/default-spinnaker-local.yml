@@ -201,7 +201,7 @@ services:
     #gateUrl: ${services.deck.baseUrl}/gate
     #bakeryUrl: ${services.deck.baseUrl}/rosco
     auth:
-      enabled: false
+      enabled: true
 
   rush:
     # Spinnaker's "rush" subsystem is used by the "rosco" bakery.
