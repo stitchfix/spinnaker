@@ -28,6 +28,7 @@ aws:
   defaultRegions:
     - name: ${providers.aws.defaultRegion:us-east-1}
   defaultFront50Template: ${services.front50.baseUrl}
+  defaultKeyPairTemplate: ${providers.aws.defaultKeyPairTemplate}
 
 azure:
   enabled: ${providers.azure.enabled:false}
@@ -71,6 +72,8 @@ dockerRegistry:
   accounts:
     - name: ${providers.dockerRegistry.primaryCredentials.name}
       address: ${providers.dockerRegistry.primaryCredentials.address}
+      username: ${providers.dockerRegistry.primaryCredentials.username}
+      passwordFile: ${providers.dockerRegistry.primaryCredentials.passwordFile}
       repositories: 
         - ${providers.dockerRegistry.primaryCredentials.repository}
 
