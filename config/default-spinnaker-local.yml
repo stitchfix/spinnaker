@@ -203,8 +203,8 @@ services:
     # If you are proxying Spinnaker behind a single host, you may want to
     # override these values. Remember to run `reconfigure_spinnaker.sh` after.
     baseUrl: http://spinnaker.vertigo.stitchfix.com
-    #gateUrl: ${services.deck.baseUrl}/gate
-    #bakeryUrl: ${services.deck.baseUrl}/rosco
+    gateUrl: ${services.deck.baseUrl}/gate
+    bakeryUrl: ${services.deck.baseUrl}/rosco
     auth:
       enabled: true
 
