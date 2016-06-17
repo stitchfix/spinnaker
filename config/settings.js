@@ -43,7 +43,7 @@
 window.spinnakerSettings = {
   gateUrl: gateUrl,
   bakeryDetailUrl: bakeryBaseUrl + '/api/v1/global/logs/{{context.status.id}}?html=true',
-  authEndpoint: gateUrl + '/auth/info',
+  authEndpoint: gateUrl + '/auth/user',
   pollSchedule: 30000,
   defaultTimeZone: defaultTimeZone, // see http://momentjs.com/timezone/docs/#/data-utilities/
   providers: {
@@ -64,7 +64,8 @@ window.spinnakerSettings = {
       defaults: {
         account: awsPrimaryAccount,
         region: awsDefaultRegion
-      }
+      },
+      useAmiBlockDeviceMappings: false,
     },
     cf: {
       defaults: {
