@@ -1,11 +1,13 @@
 # Spinnaker system defaults
+# Oauth for Gate
+GATE_OPTS="-Dspring.profiles.active=local,googleOAuth"
 
 ## Amazon
 
 # If you plan on using Amazon AWS set this to true
-SPINNAKER_AWS_ENABLED=false
+SPINNAKER_AWS_ENABLED=true
 # Default region you desire to operate in
-SPINNAKER_AWS_DEFAULT_REGION=us-west-2
+SPINNAKER_AWS_DEFAULT_REGION=us-east-1
 
 ## Google
 

@@ -31,7 +31,7 @@ ospackage {
 // global package requirements
   packageName = project.name
   version = toVers(project.version.toString())
-  release '3'
+  release '4'
 
 // installer scripts
   preInstall = file('pkg_scripts/preInstall.sh')
