@@ -119,7 +119,7 @@ providers:
 
 services:
   gate:
-    baseUrl: http://spinnaker.vertigo.stitchfix.com/gate
+    baseUrl: http://gate.vertigo.stitchfix.com
 
   default:
     # These defaults can be modified to change all the spinnaker subsystems
@@ -203,8 +203,8 @@ services:
     # If you are proxying Spinnaker behind a single host, you may want to
     # override these values. Remember to run `reconfigure_spinnaker.sh` after.
     baseUrl: http://spinnaker.vertigo.stitchfix.com
-    gateUrl: ${services.deck.baseUrl}/gate
-    bakeryUrl: ${services.deck.baseUrl}/rosco
+    gateUrl: ${services.gate.baseUrl}
+    bakeryUrl: ${services.rosco.baseUrl}
     auth:
       enabled: true
 
