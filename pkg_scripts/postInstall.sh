@@ -17,6 +17,15 @@ sed -i s/"password: {{ JENKINS_PASSWORD_HERE }}"/"password: $pass"/g /opt/spinna
 secret=$(curl vault.vertigo.stitchfix.com/secure/spinnaker_oauth_secret)
 sed -i s/"clientSecret:"/"clientSecret: $secret"/g /opt/spinnaker/config/gate-googleOAuth.yml
 
+# get keystore password for x509 auth from vault
+keystore_pass=$(curl vault.vertigo.stitchfix.com/secure/spinnaker_keystore_password)
+sed -i s/"keyStorePassword:"/"keyStorePassword: $keystore_pass"/g /opt/spinnaker/config/gate-local.yml
+sed -i s/"trustStorePassword:"/"trustStorePassword: $keystore_pass"/g /opt/spinnaker/config/gate-local.yml
+
+# get keystore file from S3 or fables
+
+# get the server cert and key from S3 or fables
+
 if [ ! -f /opt/spinnaker/config/spinnaker-local.yml ]; then
   # Create master config on original install, but leave in place on upgrades.
   cp /opt/spinnaker/config/default-spinnaker-local.yml /opt/spinnaker/config/spinnaker-local.yml
