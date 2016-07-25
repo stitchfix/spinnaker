@@ -10,11 +10,11 @@ server:
     enabled: true
     keyStore: /opt/spinnaker/ssl/keystore.jks
     #keyStore: /opt/spinnaker/ssl/keystore.jks
-    keyStorePassword: {{ SPINNAKER_KEYSTORE_PASS }}
+    keyStorePassword:
     keyAlias: server
     trustStore: /opt/spinnaker/ssl/keystore.jks
     #trustStore: /opt/spinnaker/ssl/keystore.jks
-    trustStorePassword: {{ SPINNAKER_KEYSTORE_PASS }}
+    trustStorePassword:
 
     #keyStore: /opt/spinnaker/config/keystore.jks
     #keyStorePassword: poop12345
