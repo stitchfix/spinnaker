@@ -8,11 +8,11 @@ server:
     clientAuth: want
     #enabledProtocols: "TLSv1,TLSv1.1,TLSv1.2"
     enabled: true
-    keyStore: /opt/spinnaker/ssl/new/resources/ssl/keystore.jks
+    keyStore: /opt/spinnaker/ssl/keystore.jks
     #keyStore: /opt/spinnaker/ssl/keystore.jks
     keyStorePassword: {{ SPINNAKER_KEYSTORE_PASS }}
     keyAlias: server
-    trustStore: /opt/spinnaker/ssl/new/resources/ssl/keystore.jks
+    trustStore: /opt/spinnaker/ssl/keystore.jks
     #trustStore: /opt/spinnaker/ssl/keystore.jks
     trustStorePassword: {{ SPINNAKER_KEYSTORE_PASS }}
 
