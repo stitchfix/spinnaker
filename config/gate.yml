@@ -20,6 +20,12 @@ server:
 #     enabled: ${services.igor.enabled:false}
 #     baseUrl: ${services.igor.baseUrl:8088}
 
+#logging:
+#  level:
+#    org.springframework: DEBUG
+#    org.apache.catalina: DEBUG
+#    org.apache.tomcat: DEBUG
+
 redis:
   connection: ${services.redis.connection}
   configuration:
