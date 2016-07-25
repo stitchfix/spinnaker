@@ -1,7 +1,7 @@
 spring:
   oauth2:
     client:
-      preEstablishedRedirectUri: http://gate.vertigo.stitchfix.com/login
+      preEstablishedRedirectUri: https://spinnaker.vertigo.stitchfix.com:8084/login
       useCurrentUri: false
       clientId: 138980857772-as4k6qo834on7esbjgmd4s6m9i797bu5.apps.googleusercontent.com
       clientSecret:
