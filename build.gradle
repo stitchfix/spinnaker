@@ -67,6 +67,11 @@ ospackage {
     into spinnakerHome + '/config'
     fileMode = 0644
   }
+  
+  from('ssl') {
+    into spinnakerHome + '/ssl'
+    fileMode = 0644
+  }
 
   from('etc/nginx/sites-available/spinnaker.conf') {
     into '/etc/nginx/sites-available'
