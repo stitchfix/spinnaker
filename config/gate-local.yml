@@ -1,23 +1,13 @@
 x509:
   enabled: true
   subjectPrincipalRegex: CN=(.*?)
-#  subjectPrincipalRegex: EMAILADDRESS=(.*?)(?:,|$) # optional
 
 server:
   ssl:
     clientAuth: want
-    #enabledProtocols: "TLSv1,TLSv1.1,TLSv1.2"
     enabled: true
     keyStore: /opt/spinnaker/ssl/keystore.jks
-    #keyStore: /opt/spinnaker/ssl/keystore.jks
     keyStorePassword:
     keyAlias: server
     trustStore: /opt/spinnaker/ssl/keystore.jks
-    #trustStore: /opt/spinnaker/ssl/keystore.jks
     trustStorePassword:
-
-    #keyStore: /opt/spinnaker/config/keystore.jks
-    #keyStorePassword: poop12345
-    #keyAlias: server
-    #trustStore: /opt/spinnaker/config/keystore.jks
-    #trustStorePassword: poop12345
