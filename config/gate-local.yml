@@ -1,5 +1,5 @@
 x509:
-  enabled: true
+  enabled: false
   subjectPrincipalRegex: CN=(.*?)
 
 server:
