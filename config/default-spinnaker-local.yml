@@ -207,7 +207,7 @@ services:
     gateUrl: https://spinnaker.vertigo.stitchfix.com:8084
     #bakeryUrl: ${services.rosco.baseUrl}
     auth:
-      enabled: true
+      enabled: false
 
   rush:
     # Spinnaker's "rush" subsystem is used by the "rosco" bakery.

@@ -1,6 +1,6 @@
 # Spinnaker system defaults
 # Oauth for Gate
-GATE_OPTS="-Dspring.profiles.active=local,googleOAuth"
+#GATE_OPTS="-Dspring.profiles.active=local,googleOAuth"
 
 ## Amazon
 
