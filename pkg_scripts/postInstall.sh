@@ -22,6 +22,10 @@ keystore_pass=$(curl vault.vertigo.stitchfix.com/secure/spinnaker_keystore_passw
 sed -i s/"keyStorePassword:"/"keyStorePassword: $keystore_pass"/g /opt/spinnaker/config/gate-local.yml
 sed -i s/"trustStorePassword:"/"trustStorePassword: $keystore_pass"/g /opt/spinnaker/config/gate-local.yml
 
+# add the passphrase for nginx to use with the certs
+mkdir -p /etc/keys
+echo "$keystore_pass" > /etc/keys/spinnaker.pass 
+
 # add the server.crt into the global java keystore
 /usr/lib/jvm/java/bin/keytool -import -noprompt -trustcacerts -alias server -file /opt/spinnaker/ssl/server.crt -keystore cacerts
 
