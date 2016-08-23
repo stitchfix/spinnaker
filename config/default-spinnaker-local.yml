@@ -217,7 +217,7 @@ services:
     configDir: /opt/rosco/config/packer
   
   rosco:
-    baseUrl: http://spinnaker.vertigo.stitchfix.com/rosco
+    baseUrl: https://spinnaker.vertigo.stitchfix.com/rosco
  
   echo:
     cron:

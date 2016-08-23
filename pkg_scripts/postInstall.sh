@@ -22,9 +22,8 @@ keystore_pass=$(curl vault.vertigo.stitchfix.com/secure/spinnaker_keystore_passw
 sed -i s/"keyStorePassword:"/"keyStorePassword: $keystore_pass"/g /opt/spinnaker/config/gate-local.yml
 sed -i s/"trustStorePassword:"/"trustStorePassword: $keystore_pass"/g /opt/spinnaker/config/gate-local.yml
 
-# get keystore file from S3 or fables
-
-# get the server cert and key from S3 or fables
+# add the server.crt into the global java keystore
+/usr/lib/jvm/java/bin/keytool -import -noprompt -trustcacerts -alias server -file /opt/spinnaker/ssl/server.crt -keystore cacerts
 
 if [ ! -f /opt/spinnaker/config/spinnaker-local.yml ]; then
   # Create master config on original install, but leave in place on upgrades.
