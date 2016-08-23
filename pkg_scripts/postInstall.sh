@@ -27,7 +27,7 @@ mkdir -p /etc/keys
 echo "$keystore_pass" > /etc/keys/spinnaker.pass 
 
 # add the server.crt into the global java keystore
-echo "changeit" | /usr/lib/jvm/java/bin/keytool -import -noprompt -trustcacerts -alias server -file /opt/spinnaker/ssl/server.crt -keystore cacerts
+echo "changeit" | /usr/lib/jvm/java/bin/keytool -import -noprompt -trustcacerts -alias server -file /opt/spinnaker/ssl/server.crt -keystore $JAVA_HOME/jre/lib/security/cacerts
 
 if [ ! -f /opt/spinnaker/config/spinnaker-local.yml ]; then
   # Create master config on original install, but leave in place on upgrades.
