@@ -41,7 +41,7 @@ fi
 rm -rf /etc/nginx/sites-enabled/*.conf
 ln -s /etc/nginx/sites-available/spinnaker.conf /etc/nginx/sites-enabled/spinnaker.conf
 
-service sf-nginx restart
+#service sf-nginx restart
 
 # Install the correct packer libs
 mkdir /tmp/packer && pushd /tmp/packer
@@ -52,7 +52,7 @@ rm -rf /tmp/packer
 
 ln -s /etc/nginx/sites-available/spinnaker.conf /etc/nginx/sites-enabled/spinnaker.conf
 
-service sf-nginx restart
+#service sf-nginx restart
 
 # Rename the other packer package that conflicts with our packer...(this is hacky)
 mv /usr/sbin/packer /usr/sbin/packer.io
